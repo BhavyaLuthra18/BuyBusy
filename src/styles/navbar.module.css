@@ -1,0 +1,71 @@
+
+/* main container of the navbar */
+.navbarContainer{
+    background-color: rgb(5, 5, 5);
+       width: 90%;
+       height: 70px;
+       display: flex;
+       flex-direction: row;
+       justify-content:space-between;
+       align-items: center;
+       padding:0px 5%;
+       font-size: 1.2rem;
+       font-weight: 500;
+       position: sticky;
+       top: 0;
+       z-index: 99;
+       color:white;
+   }
+   
+   /* app name inside navbar */
+   .main{
+      font-family: Georgia, 'Times New Roman', Times, serif; 
+      font-weight: 800;
+      font-size: 1.6rem ;
+      color: magenta;
+      margin-bottom: 20px;
+     text-align: center;
+     align-items: center;
+     justify-self: center;
+     font-weight: bolder;
+     
+   }
+   
+   .appName a {
+       text-decoration: none;
+   }
+   
+   .appName a:hover{
+       color: white;
+   }
+   
+   
+   
+   /* all the navigating links */
+   .navLinks{
+       float: right;
+   }
+   
+   /* single link within the navlink */
+   .navLinks span {
+       margin:  10px;
+       cursor: pointer;
+   }
+   
+   /* styling link */
+   .navLinks a{
+       color: rgb(255, 255, 255);
+       text-decoration: none;
+   }
+   
+   .homesection ,.myorder,.cart,.signinandout{
+   background-color:  magenta;
+   height: 50px;
+   border-radius: 5px;
+   font-size: 1.4rem ;
+   border: 2px solid rgb(255, 0, 157);
+   color :rgb(254, 254, 254);
+   font-family: 'Times New Roman', Times, serif;
+   
+   }
+   

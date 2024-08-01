@@ -1,0 +1,74 @@
+/* =================================Myorder=======================*/
+
+/*main container of the page*/
+.mainContainer{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* heading of the page*/
+.orderHeading{
+    color:#010202;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(250, 215, 234);
+}
+
+/* list of all the order's in  user's database */
+.orderlistContainer{
+    width:75%;
+}
+
+
+.mainContainer a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 700;
+    color:#cb75c8;
+}
+
+
+/* Single Order Container */
+.orderlistContainer > div{
+    padding:5px;
+    width:100%;
+    border-radius: 4px ;
+    margin: 10px ;
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    background-color: rgb(209 227 239 / 56%);
+    box-shadow: 0px 0px 6px 2px grey ;
+}
+
+
+/*table in the order list */
+table{
+    width:100%;
+    font-weight: 600;
+    border-collapse: collapse;
+    color: #cb75c8;
+}
+
+/* table's cell style*/
+th,td{
+    background-color:#161a21 ;
+    border: 2px solid #d2ebf1d6 ;
+
+}
+
+th{
+    font-size: 1.6rem;   
+}
+
+
+td{
+    font-size: 1.6rem;
+}
+
+
+
+/* table heading color*/
+th{
+    color:blueviolet;
+}
