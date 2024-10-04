@@ -74,29 +74,36 @@ export default function MainContent(props) {
         <div
           className="Sortby"
           style={{
-            display: "block",
-            backgroundColor:"#9352A4",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            backgroundColor: "#9352A4",
             color: "white",
             borderRadius: "10px",
-            padding: "10px",
+            width: "100px",
+            height: "50px",
             boxShadow:
               "0 0 20px rgba(155, 89, 182, 0.8), 0 0 40px rgba(142, 68, 173, 0.6)",
           }}
         >
-          <span
+          {/* Center the Sort text and icon */}
+          <div
             style={{
-              cursor: "pointer",
+              display: "flex",
               justifyContent: "center",
-              alignContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+              marginRight: "10px",
             }}
             onClick={() => setShowDropdown(!showDropdown)}
           >
-            Sort{" "}
+            <span>Sort</span>
             <RiArrowDropDownLine
               size={30}
-              style={{ justifyContent: "center" }}
+              style={{ marginLeft: "5px", top: "18px" }}
             />
-          </span>
+          </div>
           <br />
 
           {/* Custom dropdown */}
