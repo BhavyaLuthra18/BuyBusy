@@ -1,53 +1,29 @@
-// react hooks
 import { useEffect, useState } from "react";
-
-// react router
 import { useNavigate } from "react-router-dom";
-
-// redux tools for calling actions and getting data from store
 import { useDispatch, useSelector } from "react-redux";
-
-// actions from Auth and Product Reducers
 import { authSelector } from "../Redux/Reducers/authReducer";
 import {
   clearCartThunk,
   productSelector,
   purchaseAllThunk,
 } from "../Redux/Reducers/productReducer";
-
-// required component's
-// single cartItem
 import CartItem from "../Component/Cart/CartItem";
-// page loader
 import Loader from "../Component/Loader/Loader";
-
-// css styles
-// styles from other css file
 import firstStyles from "../styles/home.module.css";
-// styles for cart.js
 import secondStyles from "../styles/cart.module.css";
-
-// for toast notification
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+// Importing Lottie for animation
+import Lottie from "react-lottie";
+// Importing the animation JSON file
+import animatedData from "../../src/animation/oh2QqLj2j4.json";
 
-// render the cart page
 export function Cart() {
-  // for calling actions
   const dispatch = useDispatch();
-
-  //to show/hide the loading spinner on the page
   const [isLoading, setLoading] = useState(true);
-
-  // data of user from auth Reducer
   const { userLoggedIn } = useSelector(authSelector);
-
-  // data of cart items from Product Reducer
   const { cart, total, itemInCart } = useSelector(productSelector);
-
-  // to navigate to some page
   const navigate = useNavigate();
-
-  //to hide loading spinner after given time
 
   useEffect(() => {
     setTimeout(() => {
@@ -55,22 +31,14 @@ export function Cart() {
     }, 300);
   }, []);
 
-  // purchase button handle
-
   function handlePurchase() {
-    // if cart empty return
     if (itemInCart === 0) {
       toast.error("Nothing to purchase in Cart!!");
       return;
     }
 
-    //purchase function
     dispatch(purchaseAllThunk());
-
-    //show notification
-    toast.success("your order has been placed !!");
-
-    // navigate to myorder page
+    toast.success("Your order has been placed!!");
     navigate("/myorder");
   }
 
@@ -78,21 +46,24 @@ export function Cart() {
     dispatch(clearCartThunk());
   }
 
+  const getFormattedName = () => {
+    if (!userLoggedIn || !userLoggedIn.name) return "";
+    const firstName = userLoggedIn.name.split(" ")[0];
+    return firstName.toUpperCase();
+  };
+
   return (
     <>
-      {/*Condition to show/hide loading spinner*/}
       {isLoading ? (
         <Loader />
       ) : (
-        //main container of the page
         <div className={secondStyles.mainContainer}>
-          {/*header within the page to show cart details */}
           <div className={secondStyles.header}>
-            {/* welcome message */}
             <div className={secondStyles.userInfo}>
               {userLoggedIn ? (
                 <h1>
-                  Hey {userLoggedIn.name},<small>your cart has</small>
+                  Hey {getFormattedName() || "Guest"},
+                  <small>your cart has</small>
                 </h1>
               ) : (
                 <h1>
@@ -101,13 +72,10 @@ export function Cart() {
               )}
             </div>
 
-            {/* cart detail and purchase button */}
             <div className={secondStyles.cartDetail}>
               <div>
-                {/*item within the cart*/}
-                Item:{itemInCart}
+                Item: {itemInCart}
                 <br />
-                {/* button to empty cart */}
                 <button
                   className={secondStyles.removeAll}
                   onClick={handleClear}
@@ -117,10 +85,8 @@ export function Cart() {
               </div>
 
               <div>
-                {/*total amount of all the products within the cart*/}
-                Total Amount :₹{total}
+                Total Amount : ₹{total}
                 <br />
-                {/* button to purchase from cart*/}
                 <button
                   className={secondStyles.purchaseAll}
                   onClick={handlePurchase}
@@ -131,15 +97,45 @@ export function Cart() {
             </div>
           </div>
 
-          {/* rendering all the products within the user's cart */}
-
           <div className={firstStyles.itemContainer}>
-            {/* if cart is empty  */}
             {cart.length === 0 ? (
-              // render this msg
-              <h1>Nothing in your Cart !!</h1>
+              <>
+                <h1 className={secondStyles.nothingincart}>
+                  Nothing in your Cart !!
+                </h1>
+                <Link
+                  to="/"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    margin: "0 auto",
+                    backgroundColor: "#892BE1",
+                    padding: "10px",
+                    color: "white",
+                    borderRadius: "10px",
+                    fontWeight: "500",
+                    textDecoration: "none",
+                  }}
+                >
+                  {" "}
+                  Start Shopping
+                </Link>
+                {/* Lottie animation for empty cart */}
+                <Lottie
+                  options={{
+                    loop: true,
+                    autoplay: true,
+                    animationData: animatedData,
+                    rendererSettings: {
+                      preserveAspectRatio: "xMidYMid slice",
+                    },
+                  }}
+                  height={400}
+                  width={400}
+                />
+              </>
             ) : (
-              // else render all the product's one  by one
               cart.map((product, i) => <CartItem key={i} product={product} />)
             )}
           </div>
