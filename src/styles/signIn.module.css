@@ -1,64 +1,64 @@
 /*========= ========= SignIn and SignUp ======= ======== */
 
-
 /*main page container*/
-.container{
+.container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-/*container of input form*/
-.inputForm{
+  }
+  
+  /*container of input form*/
+  .inputForm {
     width: 500px;
-    height:400px;
-    margin-top:5%;
+    height: 400px;
+    margin-top: 5%;
     text-align: center;
-    padding: 5px ;
-}
-
-.inputForm h1 {
-    font-family: cursive;
-    color:rgb(255, 0, 157);
-}
-/*input tag with the Container*/
-
-.inputForm input{
+    padding: 5px;
+  }
+  
+  .inputForm h1 {
+    font-weight: 400;
+    color: rgb(172, 106, 185);
+  }
+  /*input tag with the Container*/
+  
+  .inputForm input {
     width: 95%;
-    height: 45px ;
-    margin-bottom: 5% ;
-    border-radius: 4px ;
-    font-size:1rem ;
-    border: 1px solid aqua ;
-}
-
-/*Submit Button*/
-.inputForm button{
-    width: 150px ;
-    height: 35px ;
+    height: 45px;
+    margin-bottom: 5%;
+    border-radius: 4px;
+    font-size: 1rem;
+    border: 2px solid rgb(222, 172, 222);
+  }
+  
+  /*Submit Button*/
+  .inputForm button {
+    width: 150px;
+    height: 35px;
     border-radius: 10px;
-    color:white ;
-    border:none;
-    font-size:1.4rem ;
-    background-image: linear-gradient(to right, rgb(255, 31, 169) 0%, #fa12c0 51%, #ff1fa5 100%);
-}
-
-/* link inside form*/
-.inputForm a {
-    color:blueviolet;
-    font-size: 1.2rem ;
+    color: white;
+    border: none;
+    font-size: 1.4rem;
+    background-image: linear-gradient(to right, #601070 51%, #ac5cc0 100%);
+  }
+  
+  /* link inside form*/
+  .inputForm a {
+    color: rgb(178, 113, 239);
+    font-size: 1.2rem;
     font-weight: 600;
-}
-
-/* hovering over link*/
-.inputForm a:hover{
-    color: blue;
-}
-/* create account*/
-span{
-font-size: 1.4rem;
-font-weight: 400;
-}
-.createAcc{
-    font-size:1.3rem;
-}
+  }
+  
+  /* hovering over link*/
+  .inputForm a:hover {
+    color: rgb(191, 92, 189);
+  }
+  /* create account*/
+  span {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  .createAcc {
+    font-size: 1.3rem;
+  }
+  

@@ -9,7 +9,10 @@ export default function OrderDetail(props) {
   return (
     <div key={date}>
       {/*date of the order*/}
-      <h1 className={styles.orderHeading}>Ordered On:{date}</h1>
+      <h1 className={styles.orderHeading}>
+        Ordered On:
+        <span style={{ color: "dark grey" }}>{date}</span>
+      </h1>
       {/*table containing the order details*/}
       <table>
         {/* first row of the table*/}
@@ -17,6 +20,7 @@ export default function OrderDetail(props) {
           <tr>
             <th>S.no</th>
             <th>Product Name</th>
+
             <th>Price</th>
             <th>Quantity</th>
             <th>Total Price</th>

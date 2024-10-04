@@ -1,71 +1,124 @@
-
-/* main container of the navbar */
-.navbarContainer{
-    background-color: rgb(5, 5, 5);
-       width: 90%;
-       height: 70px;
-       display: flex;
-       flex-direction: row;
-       justify-content:space-between;
-       align-items: center;
-       padding:0px 5%;
-       font-size: 1.2rem;
-       font-weight: 500;
-       position: sticky;
-       top: 0;
-       z-index: 99;
-       color:white;
-   }
-   
-   /* app name inside navbar */
-   .main{
-      font-family: Georgia, 'Times New Roman', Times, serif; 
-      font-weight: 800;
-      font-size: 1.6rem ;
-      color: magenta;
-      margin-bottom: 20px;
-     text-align: center;
-     align-items: center;
-     justify-self: center;
-     font-weight: bolder;
-     
-   }
-   
-   .appName a {
-       text-decoration: none;
-   }
-   
-   .appName a:hover{
-       color: white;
-   }
-   
-   
-   
-   /* all the navigating links */
-   .navLinks{
-       float: right;
-   }
-   
-   /* single link within the navlink */
-   .navLinks span {
-       margin:  10px;
-       cursor: pointer;
-   }
-   
-   /* styling link */
-   .navLinks a{
-       color: rgb(255, 255, 255);
-       text-decoration: none;
-   }
-   
-   .homesection ,.myorder,.cart,.signinandout{
-   background-color:  magenta;
-   height: 50px;
-   border-radius: 5px;
-   font-size: 1.4rem ;
-   border: 2px solid rgb(255, 0, 157);
-   color :rgb(254, 254, 254);
-   font-family: 'Times New Roman', Times, serif;
-   
-   }
-   
+/*-----------------------NAVBAR STYLING--------------------------------------*/
+.navbarContainer {
+    width: 90%;
+    max-width: 1600px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    color: white;
+    margin: 0 auto;
+    background: linear-gradient(
+      90deg,
+      #2e0261 0%,
+      #411463 30%,
+      #191818 55%,
+      #411463 75%
+    );
+  
+    /* Subtle glow effect */
+    box-shadow: 0 0 20px rgba(130, 42, 167, 0.8), 0 0 40px rgba(130, 42, 167, 0.6),
+      0 0 60px rgba(130, 42, 167, 0.4);
+  }
+  
+  /* App name inside navbar */
+  .appName {
+    font-size: 2.4rem;
+    flex: 1;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 100px;
+    gap: 2px;
+  }
+  .main {
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Search input wrapper */
+  .searchBar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    align-items: center;
+    margin-left: 50px;
+  }
+  
+  /* Navigation links */
+  .navLinks {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    gap: 30px;
+  }
+  
+  .signinandout {
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: rgb(255, 255, 255);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    padding: 4px;
+  }
+  
+  .homesection,
+  .myorder,
+  .cart {
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: rgb(255, 255, 255);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    padding: 2px 4px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Active tab with box-shadow */
+  .active {
+    box-shadow: 0 4px 8px rgba(138, 108, 167, 0.8);
+    border-color: rgb(190, 124, 190);
+  }
+  
+  .navLinks span {
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .cartcount {
+    background-color: #a93dfc;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    padding: 4px 4px;
+    position: absolute;
+    top: 10px;
+    font-size: 14px;
+  }
+  

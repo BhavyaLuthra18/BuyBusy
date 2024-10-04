@@ -42,7 +42,7 @@ function getDateTime() {
 export const getInitialCartOrdersThunk = createAsyncThunk(
   "product/getCartOrders",
   async (args, thunkAPI) => {
-    const { authReducer} = thunkAPI.getState();
+    const { authReducer } = thunkAPI.getState();
     const { isLoggedIn, userLoggedIn } = authReducer;
 
     if (isLoggedIn) {
@@ -82,7 +82,6 @@ export const getInitialCartOrdersThunk = createAsyncThunk(
     return [];
   }
 );
-
 
 // async thunk to update cart to the database
 const updateCartInDatabase = createAsyncThunk(
@@ -186,7 +185,7 @@ export const addToCartThunk = createAsyncThunk(
   }
 );
 
-//Async  thunk to removena product from the cart
+//Async  thunk to remove a product from the cart
 export const removeFromCartThunk = createAsyncThunk(
   // action type for removing cart
   "product/removeFromCart",
@@ -312,7 +311,7 @@ const productSlice = createSlice({
     // update the state after getting the data from database
     builder
       .addCase(getInitialCartOrdersThunk.fulfilled, (state, action) => {
-        console.log('Fulfilled action payload :' , action.payload)
+        console.log("Fulfilled action payload :", action.payload);
         const cart = action.payload;
         if (cart) {
           let sum = 0,

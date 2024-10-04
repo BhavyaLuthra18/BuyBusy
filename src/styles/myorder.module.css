@@ -1,74 +1,57 @@
 /* =================================Myorder=======================*/
 
-/*main container of the page*/
-.mainContainer{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-/* heading of the page*/
-.orderHeading{
-    color:#010202;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(250, 215, 234);
-}
-
-/* list of all the order's in  user's database */
-.orderlistContainer{
-    width:75%;
-}
-
-
-.mainContainer a {
-    font-size: 1.2rem;
-    text-decoration: none;
-    font-weight: 700;
-    color:#cb75c8;
-}
-
-
 /* Single Order Container */
-.orderlistContainer > div{
-    padding:5px;
-    width:100%;
-    border-radius: 4px ;
-    margin: 10px ;
+.orderlistContainer > div {
+    padding: 15px;
+    width: 90%;
+    border-radius: 4px;
+    margin: 15px;
     background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
     background-color: rgb(209 227 239 / 56%);
-    box-shadow: 0px 0px 6px 2px grey ;
-}
-
-
-/*table in the order list */
-table{
-    width:100%;
-    font-weight: 600;
+    box-shadow: 0px 0px 6px 2px grey;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    font-weight: 400;
     border-collapse: collapse;
-    color: #cb75c8;
-}
-
-/* table's cell style*/
-th,td{
-    background-color:#161a21 ;
-    border: 2px solid #d2ebf1d6 ;
-
-}
-
-th{
-    font-size: 1.6rem;   
-}
-
-
-td{
-    font-size: 1.6rem;
-}
-
-
-
-/* table heading color*/
-th{
-    color:blueviolet;
-}
+    color: #000000;
+    font-size: 1rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Table's Cell Style */
+  th,
+  td {
+    background-color: #ececee;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  /* Table Heading (th) Style */
+  th {
+    font-size: 1.4rem;
+    background-color: #e3e3e3;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid #ddd;
+  }
+  
+  td {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr {
+    margin-bottom: 18px;
+  }
+  
+  .orderHeading {
+    text-align: center;
+    font-weight: 400;
+  }
+  

@@ -3,203 +3,205 @@
 /*Page header containing search bar and button */
 
 .header {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  /* search bar*/
-  
-  .header input {
-    width: 35%;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 0, 132);
-    padding: 2px 5px;
-    font-size: 1rem;
-  }
-  
-  /* apply filter button*/
-  
-  .header button {
-    float: right;
-    margin-right: 5%;
-    height: 40px;
-    width: 150px;
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-radius: 4px;
-    border: none;
-    background-image: linear-gradient(
-      to right,
-      #e88ac8 0%,
-      #fa1292 51%,
-      #ff1f8b 100%
-    );
-    color: white;
-  }
-  
-  /* container containing filterbar and product list*/
-  
-  .mainContainer {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .mainContainer > div {
-    margin: 15px;
-    width: 100%;
-  }
-  
-  /* ============Filter bar=========== */
-  
-  /*filterbar styles*/
-  .filterBar {
-    box-shadow: 1px 1px 8px 1px grey;
-    height: 60px;
-    font-size: 1.1rem;
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-    font-weight: 600;
-    display: flex;
-    flex-direction: row;
-    color: #dd4c90;
-    border-radius: 5px;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  /*filter bar heading*/
-  .filterBar h1 {
-    color: hsl(335, 80%, 43%);
-    font-family: cursive;
-  }
-  
-  /* sub heading inside filter bar*/
-  .filterBar span {
-    color: #050003;
-    font-weight: 700;
-  }
-  
-  /* price range to filter items */
-  .priceRange {
-    text-align: center;
-    font-weight: 800;
-    font-size: 1.4rem;
-  }
-  
-  /*price range slider*/
-  .priceRange input {
-    width: 100%;
-    height: 5px;
-  }
-  
-  /*category of the products*/
-  .categoryBox {
-    display: flex;
-  }
-  
-  /*radio buttons inside category*/
-  .categoryBox input {
-    margin-left: 15px;
-    cursor: pointer;
-   
-  }
-  
-  /* ===================== Main Content ================= */
-  
-  /* container for all the products */
-  .itemContainer {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 6%;
-  }
-  
-  /* ========================= ItemCard ======================*/
-  .cardContainer {
-    display: flex;
-    height: 500px;
-    width: 300px;
-    box-shadow: 0px 0px 2px 2px grey;
-    margin: 2%;
-    padding: 5px;
-    flex-direction: column;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 5px;
-  }
-  
-  /* image contianer of the product*/
-  .imageContainer {
-    height: 80%;
-    width: 100%;
-  }
-  
-  /* image within the container*/
-  .imageContainer img {
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* product description*/
-  .itemInfo {
-    width: 100%;
-    height: 20%;
-  }
-  
-  /* container of the name and price*/
-  .namePrice {
-    display: flex;
-    height: 45%;
-    text-align: center;
-  }
-  
-  /*name of the product*/
-  .name {
-    text-align: left;
-    width: 75%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 700;
-    height: 94%;
-  }
-  
-  /* price of the product */
-  .price {
-    width: 75%;
-    color: #0a0aff;
-    font-weight: 700;
-    height: 95%;
-  }
-  
-  /* button contianer within the item*/
-  .btnContainer {
-    height: 55%;
-  }
-  
-  /* button  inside the container*/
-  .btnContainer button {
-    width: 100%;
-    height: 100%;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    color: white;
-  }
-  
-  /* add to cart button*/
-  .addBtn {
-    background-image: linear-gradient(
-      to right,
-      #c44c70 0%,
-      #d33cab 51%,
-      #c44c4c 100%
-    );
-  }
-  
-  /* add button on hovering over it */
-  .addBtn:hover {
-    background-image: none;
-    border: 2px solid #c44cb8;
-    color: #c44c92;
-    font-weight: 700;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+/* search bar*/
+
+.header input {
+  width: 45%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(231, 231, 231);
+  padding: 2px 5px;
+  font-size: 1rem;
+}
+
+/* apply filter button*/
+
+.header button {
+  float: right;
+  margin-right: 5%;
+  height: 40px;
+  width: 150px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: none;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+/* container containing filterbar and product list*/
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mainContainer > div {
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============Filter bar=========== */
+
+/*filterbar styles*/
+.filterBar {
+  box-shadow: 1px 1px 8px 1px grey;
+  width: 60vw;
+  height: 20vh;
+  font-size: 1rem;
+  background: #d4a9d7;
+  display: flex;
+  padding: 10px;
+  gap: 60px;
+  justify-content: center;
+  flex-direction: row;
+  color: #f2eef3;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+/*filter bar heading*/
+
+/* sub heading inside filter bar*/
+.filterBar span {
+  color: #050003;
+}
+
+/* price range to filter items */
+.priceRange {
+  text-align: center;
+  font-size: 1rem;
+}
+
+/*price range slider*/
+.priceRange input {
+  width: 100%;
+  height: 5px;
+}
+
+/*category of the products*/
+.categoryBox {
+  display: flex;
+}
+
+/*radio buttons inside category*/
+.categoryBox input {
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* ===================== Main Content ================= */
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between individual item cards */
+}
+
+.priceRange {
+  margin-left: 1400px;
+}
+/* ========================= ItemCard ======================*/
+
+.container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContainer {
+  height: 500px;
+  width: 300px;
+
+  margin: 2%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/* image contianer of the product*/
+.imageContainer {
+  height: 80%;
+  width: 100%;
+}
+
+/* image within the container*/
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+}
+
+/* product description*/
+.itemInfo {
+  width: 100%;
+  height: 20%;
+}
+
+/* container of the name and price*/
+.namePrice {
+  display: flex;
+  height: 45%;
+  text-align: center;
+}
+
+/*name of the product*/
+.name {
+  text-align: left;
+  width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1c2124;
+  font-weight: 400;
+  height: 94%;
+}
+
+/* price of the product */
+.price {
+  width: 75%;
+  color: #000000;
+  font-weight: 600;
+  height: 95%;
+}
+
+/* button contianer within the item*/
+.btnContainer {
+  width: 45%;
+  height: 45%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* button  inside the container*/
+.btnContainer button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+}

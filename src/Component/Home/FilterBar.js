@@ -1,84 +1,145 @@
 //css styles
 import styles from "../../styles/home.module.css";
+
 // render the filter bar
 export default function FilterBar(props) {
-  const { price, setPrice, setCategory } = props;
+  const { setCategory } = props;
+
   return (
     // main container of the filter bar
     <div className={styles.filterBar}>
-      {/* heading*/}
-      <h1>FilterBar</h1>
-      {/*price ranger and price slider*/}
-      <div className={styles.priceRange}>
-        {/*sub heading*/}
-        <span>Price</span>
-        {` <= ${price}`}
-        <br />
-        {/*Slider*/}
-        <input
-          type="range"
-          min="100"
-          max="50000"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </div>
+      {/* heading */}
 
-      {/* sort item by category */}
+      {/* sort items by category */}
       <div className={styles.categoryBox}>
-        {/* Sub Heading*/}
-        <span>Category:</span>
-        {/* radio buttons for differnet category */}
+        {/* Sub Heading */}
         <div>
-          {/*Men Category*/}
-          <input
-            type="radio"
-            id="men"
-            value="men"
-            name="category"
-            onClick={() => setCategory("men")}
-          />
-          <label for="men">Men</label>
+          <p style={{ textAlign: "center", fontSize: "1.4rem" }}>
+            What are you shopping today?
+          </p>
 
-          {/*Women Category*/}
-          <input
-            type="radio"
-            id="women"
-            value="women"
-            name="category"
-            onClick={() => setCategory("women")}
-          />
-          <label for="women">Women</label>
+          {/* Flex container for categories */}
+          <div style={{ display: "flex", gap: "50px" }}>
+            {/* All */}
+            <div
+              onClick={() => setCategory("none")}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="/images/all1.jpg"
+                width={60}
+                height={60}
+                alt="None"
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: "10px",
+                }}
+              />
+              <label htmlFor="none">All</label>
+            </div>
+            {/* Men Category */}
+            <div
+              onClick={() => setCategory("men")}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="/images/men3.jpg"
+                width={60}
+                height={60}
+                alt="Men"
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: "10px",
+                }}
+              />
+              <label htmlFor="men">Men</label>
+            </div>
 
-          {/* electronic */}
-          <input
-            type="radio"
-            id="electric"
-            value="electric"
-            name="category"
-            onClick={() => setCategory("electric")}
-          />
-          <label for="electric">Electronic</label>
+            {/* Women Category */}
+            <div
+              onClick={() => setCategory("women")}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="/images/women3.jpeg"
+                width={60}
+                height={60}
+                alt="Women"
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: "10px",
+                }}
+              />
+              <label htmlFor="women">Women</label>
+            </div>
 
-          {/* jewellery */}
-          <input
-            type="radio"
-            id="jewellery"
-            value="jewellery"
-            name="category"
-            onClick={() => setCategory("jewellery")}
-          />
-          <label for="jewellery">Jewellery</label>
+            {/* Electronics Category */}
+            <div
+              onClick={() => setCategory("electric")}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                marginBottom: "10px",
+              }}
+            >
+              <img
+                src="/images/electronics3.jpg"
+                width={60}
+                height={60}
+                alt="Electronic"
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: "10px",
+                }}
+              />
+              <label htmlFor="electric">Electronic</label>
+            </div>
 
-          {/* none */}
-          <input
-            type="radio"
-            id="none"
-            value="none"
-            name="category"
-            onClick={() => setCategory("none")}
-          />
-          <label for="jewellery">None</label>
+            {/* Jewellery */}
+            <div
+              onClick={() => setCategory("jewellery")}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="/images/jewellery1.jpg"
+                width={60}
+                height={60}
+                alt="Jewellery"
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: "10px",
+                }}
+              />
+              <label htmlFor="jewellery">Jewellery</label>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,54 +1,79 @@
-// for calling reducer actions
+// For calling reducer actions
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useState } from "react"; // Import useState for managing loading state
 
-//css styles
+// CSS styles
 import styles from "../../styles/home.module.css";
 
-// thunk action from product rreducer
+// Thunks for cart actions
+import { addToCartAndIncreaseCountThunk } from "../../Redux/Reducers/cartReducer";
 import { addToCartThunk } from "../../Redux/Reducers/productReducer";
 
-// component to render single product item on the screen
+// Component to render a single product item on the screen
 export default function ItemCard(props) {
-  // for calling actions
+  // For calling actions
   const dispatch = useDispatch();
-  //getting all the value of the product from props
+  const navigate = useNavigate(); // Use useNavigate for navigation
+  const [loading, setLoading] = useState(false); // Local state for loading
+  const [added, setAdded] = useState(false); // State to track if item is added
+
+  // Getting all the values of the product from props
   const { name, image, price, category } = props.item;
 
-  const handleAddToCartClick = () => {
-    // dispatch addToCartThunk
-    dispatch(addToCartThunk(props.item));
+  const handleAddToCartClick = async () => {
+    setLoading(true); // Set loading to true
 
-    // console.log a message when the item is added to the cart
+    // Dispatch addToCartThunk
+    await dispatch(addToCartThunk(props.item));
+    // Dispatch increase cart count action
+    await dispatch(addToCartAndIncreaseCountThunk(props.item));
+
+    // Console log a message when the item is added to the cart
     console.log(`${name} added to the cart!`);
+
+    setLoading(false); // Set loading to false after the action is complete
+    setAdded(true); // Mark item as added
+  };
+
+  const handleGoToCartClick = () => {
+    navigate("/cart"); // Redirect to /cart
   };
 
   return (
-    <>
-      {/*main container */}
+    <div className={styles.container}>
       <div className={styles.cardContainer}>
-        {/*Image  container */}
+        {/* Image container */}
         <div className={styles.imageContainer}>
           <img src={image} alt={category} />
         </div>
-        {/* description of the product name,price, add button */}
+        {/* Description of the product name, price, add button */}
         <div className={styles.itemInfo}>
           <div className={styles.namePrice}>
-            {/*name of the Product*/}
-
+            {/* Name of the Product */}
             <div className={styles.name}>{name}</div>
-
-            {/* Price of the Product*/}
-
+            {/* Price of the Product */}
             <div className={styles.price}> ₹{price}</div>
           </div>
-          {/*add to cart button*/}
+          {/* Add to cart button */}
           <div className={styles.btnContainer}>
-            <button className={styles.addBtn} onClick={handleAddToCartClick}>
-              Add to Cart
+            <button
+              className={styles.addBtn}
+              style={{
+                color: "rgb(65,20,99)",
+                border: "2px solid rgb(65,20,99)",
+                backgroundColor: "white",
+                marginTop: "15px",
+              }}
+              onClick={added ? handleGoToCartClick : handleAddToCartClick}
+              disabled={loading} // Disable button while loading
+            >
+              {loading ? "Adding..." : added ? "Go to Cart" : "Add to Cart"}
             </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
