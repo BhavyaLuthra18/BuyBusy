@@ -126,10 +126,11 @@ export default function Navbar({ search, setSearch }) {
                 }
               >
                 <span style={{ display: "flex" }}>
-                  <span className={styles.cartcount}>{cartCount}</span>
+                  {/*---Conditionally render the cart count only if it's greater than 0----*/}
+                  {cartCount > 0 && <span className={styles.cartcount}>{cartCount}</span>}
                   <FaShoppingCart
                     size={24}
-                    style={{ marginRight: "8px", marginLeft: "14px" }}
+                    style={{ marginRight: "8px", marginLeft:cartCount > 0 ? "14px":"0px"}}
                   />{" "}
                   Cart
                 </span>

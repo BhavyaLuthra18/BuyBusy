@@ -1,18 +1,13 @@
+// productReducer.js
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { db } from "../../firebaseInit";
-import {
-  doc,
-  updateDoc,
-  getDoc,
-  arrayUnion,
-  arrayRemove,
-} from "firebase/firestore";
+import { doc, updateDoc, getDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 
-// Async thunk to get initial cart count from the database
+// Get initial cart count from the database
 export const getInitialCartCountThunk = createAsyncThunk(
   "cart/getInitialCartCount",
-  async (args, thunkAPI) => {
+  async (_, thunkAPI) => {
     const { authReducer } = thunkAPI.getState();
     const { isLoggedIn, userLoggedIn } = authReducer;
 
@@ -30,7 +25,6 @@ export const getInitialCartCountThunk = createAsyncThunk(
           );
           return { totalItems, cart };
         } else {
-          console.error("Document not found.");
           return { totalItems: 0, cart: [] };
         }
       } catch (error) {
@@ -42,7 +36,7 @@ export const getInitialCartCountThunk = createAsyncThunk(
   }
 );
 
-// Async thunk to add a product to the cart and increase the count
+// Add product to cart and increase the count
 export const addToCartAndIncreaseCountThunk = createAsyncThunk(
   "cart/addToCartAndIncreaseCount",
   async (product, thunkAPI) => {
@@ -69,7 +63,7 @@ export const addToCartAndIncreaseCountThunk = createAsyncThunk(
   }
 );
 
-// Async thunk to remove a product from the cart and decrease the count
+// Remove product from cart and decrease the count
 export const removeFromCartAndDecreaseCountThunk = createAsyncThunk(
   "cart/removeFromCartAndDecreaseCount",
   async (product, thunkAPI) => {
@@ -84,6 +78,7 @@ export const removeFromCartAndDecreaseCountThunk = createAsyncThunk(
 
       thunkAPI.dispatch(decreaseCartCount(1));
       thunkAPI.dispatch(removeFromCart(product));
+      toast.success("Remove from Cart !!");
     } catch (error) {
       console.error("Error removing from cart:", error);
       toast.error("Failed to remove item from cart.");
@@ -91,7 +86,7 @@ export const removeFromCartAndDecreaseCountThunk = createAsyncThunk(
   }
 );
 
-// Cart Slice
+// Slice for cart functionality
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -100,25 +95,20 @@ const cartSlice = createSlice({
   },
   reducers: {
     increaseCartCount: (state, action) => {
-      const countToAdd = action.payload || 0;
-      console.log("Increasing cart count by:", countToAdd);
-      state.cartCount += countToAdd;
+      state.cartCount += action.payload || 0;
     },
     decreaseCartCount: (state, action) => {
-      const countToSubtract = action.payload || 0;
-      state.cartCount = Math.max(0, state.cartCount - countToSubtract); // Prevent negative cart count
+      state.cartCount = Math.max(0, state.cartCount - (action.payload || 0)); // Prevent negative count
     },
     setCartCount: (state, action) => {
       state.cartCount = action.payload || 0;
     },
     addToCart: (state, action) => {
       const itemToAdd = action.payload;
-      if (!itemToAdd || !itemToAdd.id) return; // Prevent adding empty or invalid items
       const existingItem = state.cartItems.find(
         (item) => item.id === itemToAdd.id
       );
       if (existingItem) {
-        // Increment quantity if the item exists
         existingItem.quantity += 1;
       } else {
         state.cartItems.push({ ...itemToAdd, quantity: 1 });
@@ -143,28 +133,13 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getInitialCartCountThunk.fulfilled, (state, action) => {
-        state.cartCount = action.payload.totalItems; // Set initial cart count
-        state.cartItems = action.payload.cart; // Initialize cart items
-      })
-      .addCase(addToCartAndIncreaseCountThunk.fulfilled, (state, action) => {})
-      .addCase(
-        removeFromCartAndDecreaseCountThunk.fulfilled,
-        (state, action) => {}
-      );
+        state.cartCount = action.payload.totalItems;
+        state.cartItems = action.payload.cart;
+      });
   },
 });
 
-// Export the reducer
+// Export the reducer and actions
+export const { increaseCartCount, decreaseCartCount, setCartCount, addToCart, removeFromCart } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
-
-// Export the actions
-export const {
-  increaseCartCount,
-  decreaseCartCount,
-  setCartCount,
-  addToCart,
-  removeFromCart,
-} = cartSlice.actions;
-
-// Selector to get cart items
 export const cartSelector = (state) => state.cart.cartItems;
